@@ -11,6 +11,9 @@ app.use(express.json())
 app.use(express.urlencoded({extended: false /*Sirve para imagenes o datos así, es false porque no lo requiero*/ })) //Para cuando me envian datos desde un formulario
 
 //routes
+app.get('/', (req, res)=>{
+    res.send("Hola mundo from the API")
+})
 app.use('/users', usersRoute)
 app.use('/notes', verifyToken, notesRoute)
 
