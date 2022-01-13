@@ -1,10 +1,10 @@
 //Conectar con postgres
 const { Pool } = require('pg')
 const pool = new Pool({
-    host: 'localhost',
-    user: 'postgres',
-    password: 'root',
-    database: 'firstapi',
+    host: 'ec2-184-73-243-101.compute-1.amazonaws.com',
+    user: 'fzgyqpwcnvwqkn',
+    password: '7ad381369f68a32872073ead18a1dbaf8890f497528566a810bf9f446d89722c',
+    database: 'd91f9n82226tmg',
     port: '5432'
 })
 const jwt = require('jsonwebtoken')
