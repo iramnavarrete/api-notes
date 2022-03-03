@@ -32,7 +32,7 @@ const signUpUser = async (req, res) => {
     const { name, email, password } = req.body
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
-    if (name != null || email != null || password != null) {
+    // if (name != null || email != null || password != null) {
 
         await pool.query('INSERT INTO users(name, email, password) VALUES ($1, $2, $3) ON CONFLICT (email) DO NOTHING', [name, email, hash], (err, result) => {
             if (err) {
@@ -53,11 +53,11 @@ const signUpUser = async (req, res) => {
                 }
             })
         })
-    } else {
-        res.status(404).send({
-            message: 'Error: Check yout JSON content, the information is invalid'
-        })
-    }
+    // } else {
+    //     res.status(404).send({
+    //         message: 'Error: Check yout JSON content, the information is invalid'
+    //     })
+    // }
 
 }
 
