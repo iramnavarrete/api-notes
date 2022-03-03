@@ -34,7 +34,7 @@ const signUpUser = async (req, res) => {
     const hash = bcrypt.hashSync(password, salt);
     // if (name != null || email != null || password != null) {
 
-        await pool.query('INSERT INTO users(name, email, password) VALUES ($1, $2, $3) ON CONFLICT (email) DO NOTHING', [name, email, hash], (err, result) => {
+        await pool.query("INSERT INTO users(name, email, password) VALUES ('$1', '$2', '$3') ON CONFLICT (email) DO NOTHING", [name, email, hash], (err, result) => {
             if (err) {
                 return res.status(500).json({
                     message: 'Error executing query',
