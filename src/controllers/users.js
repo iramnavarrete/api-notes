@@ -30,8 +30,8 @@ const getUsers = async (req, res) => { //es asíncrona, por lo que está esperan
 
 const signUpUser = async (req, res) => {
     const { name, email, password } = req.body
-    var salt = bcrypt.genSaltSync(10);
-    var hash = bcrypt.hashSync(password, salt);
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(password, salt);
     if (name != null || email != null || password != null) {
 
         await pool.query('INSERT INTO users(name, email, password) VALUES ($1, $2, $3) ON CONFLICT (email) DO NOTHING', [name, email, hash], (err, result) => {

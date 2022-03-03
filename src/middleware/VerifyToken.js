@@ -1,6 +1,5 @@
 
 const jwt = require('jsonwebtoken')
-const moment = require('moment')
 
 // middleware to validate token (rutas protegidas)
 const verifyToken = (req, res, next) => {
